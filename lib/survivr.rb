@@ -20,9 +20,8 @@ require_relative "jury"
 
 #This is where you will write your code for the three phases
 def phase_one
-	cohu = Game.new(@coyopa, @hunapu)
 	8.times do
-		loosing_team = cohu.immunity_challenge
+		loosing_team = @borneo.immunity_challenge
 		loosing_team.tribal_council
 	end
 end
