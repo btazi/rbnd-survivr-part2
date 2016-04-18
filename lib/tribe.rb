@@ -4,7 +4,7 @@ class Tribe
 	def initialize(options={})
 		@name = options[:name]
 		@members = options[:members] || []
-		puts "new tribe '#{@name}' with contestants: #{@members.map(&:name).join(", ")}"
+		puts "new tribe '#{@name}'"
 	end
 
 	def to_s
