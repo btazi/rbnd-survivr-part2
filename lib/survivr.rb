@@ -22,7 +22,7 @@ require_relative "jury"
 def phase_one
 	8.times do
 		loosing_team = @borneo.immunity_challenge
-		loosing_team.tribal_council
+		loosing_team.members.delete(loosing_team.tribal_council)
 	end
 end
 
