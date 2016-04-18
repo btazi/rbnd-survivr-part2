@@ -10,7 +10,7 @@ class Game
 	end
 
 	def immunity_challenge
-		Tribe.new
+		@tribes.sample
 	end
 
 	def individual_immunity_challenge
