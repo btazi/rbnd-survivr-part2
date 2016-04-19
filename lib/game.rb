@@ -14,7 +14,7 @@ class Game
 	end
 
 	def individual_immunity_challenge
-		members =	@tribes[2].members 
+		members = (!@tribes[2].nil? ? @tribes[2].members : merge("new_tribe").members)
 		#remove a random winner from the members listfor this challenge
 		challenge_members = members.clone
 		challenge_members.delete(members.sample)
@@ -33,7 +33,7 @@ class Game
 		end
 		members.flatten!
 		new_tribe = Tribe.new(name: name, members: members)
-		@tribes <<	new_tribe 
+		@tribes[2] =	new_tribe 
 		new_tribe
 	end
 end

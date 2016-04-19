@@ -38,6 +38,8 @@ class Jury
 
 	def announce_winner(final_votes)
 		winner_votes = final_votes.values.max
-		final_votes.select {|k, v| v == winner_votes}.keys[0]
+		winner = final_votes.select {|k, v| v == winner_votes}.keys[0]
+		puts "The last survivor is #{winner} !"
+		winner
 	end
 end
