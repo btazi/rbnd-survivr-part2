@@ -1,5 +1,5 @@
 class Game
-	attr_reader :tribes
+	attr_reader :tribes, :immune
 
 	def initialize(tribe1, tribe2)
 		@tribes = [tribe1, tribe2]
@@ -14,7 +14,12 @@ class Game
 	end
 
 	def individual_immunity_challenge
-		Contestant.new("Tom")
+		members =	@tribes[2].members 
+		#remove a random winner from the members listfor this challenge
+		challenge_members = members.clone
+		challenge_members.delete(members.sample)
+		#choose randomly the eliminated contestant
+		challenge_members.sample
 	end
 
 	def clear_tribes
@@ -27,6 +32,8 @@ class Game
 		 	members << tribe.members
 		end
 		members.flatten!
-		Tribe.new(name: name, members: members)
+		new_tribe = Tribe.new(name: name, members: members)
+		@tribes <<	new_tribe 
+		new_tribe
 	end
 end
