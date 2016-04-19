@@ -1,0 +1,18 @@
+GIT
+  remote: https://github.com/btazi/colorizr
+  revision: c9ed83c20ed8035c385b3420f2cbd06b107bb5a2
+  specs:
+    colorizr (0.0.3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  colorizr!
+
+BUNDLED WITH
+   1.11.2
