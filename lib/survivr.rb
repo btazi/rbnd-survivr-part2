@@ -23,21 +23,21 @@ require_relative "jury"
 def phase_one
 	8.times do
 		loosing_team = @borneo.immunity_challenge
-		loosing_team.members.delete(loosing_team.tribal_council)
+		loosing_team.tribal_council
 	end
 end
 
 def phase_two
 	3.times do
-		@merge_tribe.members.delete(@borneo.individual_immunity_challenge)
+		winner = @borneo.individual_immunity_challenge
+		@merge_tribe.tribal_council(immune: winner)
 	end
 end
 
 def phase_three
 	7.times do
-		new_jury_member = @borneo.individual_immunity_challenge
+		new_jury_member = @merge_tribe.tribal_council
 		@jury.add_member(new_jury_member)
-		@merge_tribe.members.delete(new_jury_member)
 	end
 end
 

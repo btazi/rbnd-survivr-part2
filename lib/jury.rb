@@ -22,11 +22,11 @@ class Jury
 		end
 	end
 
-	def vote_randomly(members)
+	def vote_randomly(finalists)
 		self.members.each do |jury_member|
-			vote_for = members.sample.name 
-			@@votes[vote_for.to_sym]  += 1
-			puts "#{jury_member} has voted for #{vote_for}".yellow
+			voted_finalist = finalists.sample.name 
+			@@votes[voted_finalist.to_sym]  += 1
+			puts "#{jury_member} has voted for #{voted_finalist}".yellow
 		end
 	end
 
@@ -37,8 +37,7 @@ class Jury
 	end
 
 	def announce_winner(final_votes)
-		winner_votes = final_votes.values.max
-		winner = final_votes.select {|k, v| v == winner_votes}.keys[0]
+		winner = final_votes.max_by {|k, v| v}[0]
 		puts "The last survivor is #{winner} !".green
 		winner
 	end
