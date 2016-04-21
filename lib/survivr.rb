@@ -36,7 +36,8 @@ end
 
 def phase_three
 	7.times do
-		new_jury_member = @merge_tribe.tribal_council
+		winner = @borneo.individual_immunity_challenge 
+		new_jury_member = @merge_tribe.tribal_council(immune: winner)
 		@jury.add_member(new_jury_member)
 	end
 end
